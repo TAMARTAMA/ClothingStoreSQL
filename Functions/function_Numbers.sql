@@ -1,30 +1,30 @@
 
 
---4 ъйаеш) дцвд млм тебг аъ дордм  щме отрд моишд осфш )~
+--4 ГєГ©Г ГҐГё) Г¤Г¶ГўГ¤ Г¬Г«Г¬ ГІГҐГЎГЈ Г Гє Г¤Г®Г°Г¤Г¬  Г№Г¬ГҐ Г®ГІГ°Г¤ Г¬Г®ГЁГёГ¤ Г®Г±ГґГё )~
 select s1.SellerFirstName +' '+s1.SellerLastName  as'nameSeller',s2.SellerFirstName +' '+ s2.SellerLastName as' nameManager'
 from Seller s1 join Seller s2 on s1.SelManager=s2.SellerId
---ае
+--Г ГҐ
 select s1.SellerFirstName +' '+s1.SellerLastName  as'nameSeller',s2.SellerFirstName +' '+ s2.SellerLastName as' nameManager'
 from Seller s1, Seller s2
 where s1.SelManager=s2.SellerId
---фер щоцйвд аъ  дозйш дочсйомй мгвн  ~
+--ГґГҐГ° Г№Г®Г¶Г©ГўГ¤ Г Гє  Г¤Г®Г§Г©Гё Г¤Г®Г·Г±Г©Г®Г¬Г© Г¬ГЈГўГ­  ~
 select *
 from Model
 where Price=(select max(Price) from  Model  )
---оцйв аъ дгвойн щчре одн йеъш оазг~
+--Г®Г¶Г©Гў Г Гє Г¤ГЈГўГ®Г©Г­ Г№Г·Г°ГҐ Г®Г¤Г­ Г©ГҐГєГё Г®Г Г§ГЈ~
 select s.SizeId,m.ModelName
 from Size s join Model m on m.ModelId=s.ModelId 
 where (select count(o.Amount) from orderDetail o where s.SizeId=o.SizeId)>1
---ооецт озйш млм ойгд бърай щдозйш дооецт вгем о100~
+--Г®Г®ГҐГ¶ГІ Г®Г§Г©Гё Г¬Г«Г¬ Г®Г©ГЈГ¤ ГЎГєГ°Г Г© Г№Г¤Г®Г§Г©Гё Г¤Г®Г®ГҐГ¶ГІ ГўГЈГҐГ¬ Г®100~
 select s.SizeId, s.Size,avg(m.Price)
 from Size s join Model m on m.ModelId=s.ModelId 
 group by s.SizeId ,s.Size
 having avg(m.Price)>100
---дцбт длй фефмшй ббвгйн~
+--Г¤Г¶ГЎГІ Г¤Г«Г© ГґГҐГґГ¬ГёГ© ГЎГЎГўГЈГ©Г­~
 select m.Color,count(*)
 from Model m left join Size s on s.ModelId=m.ModelId left join orderDetail o on o.SizeId=s.SizeId
 group by m.Color
---дцвъ ооецт джореъ ммчез~
+--Г¤Г¶ГўГє Г®Г®ГҐГ¶ГІ Г¤Г¦Г®Г°ГҐГє Г¬Г¬Г·ГҐГ§~
 select avg(sumTocus) as avgCountOrders
 from (select c.CustomerId,count(o.OrderId) as sumTocus
 from Customer c join Orders o on o.CustomerId=c.CustomerId
