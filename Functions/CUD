@@ -11,9 +11,9 @@ as
 begin
 insert into Customer
 values(@cuslast,@cusfirst,@city,@adress)
-print 'ğåñó áäöìçä'
+print 'Ã°Ã¥Ã±Ã³ Ã¡Ã¤Ã¶Ã¬Ã§Ã¤'
 end
-exec InsertValueToCusotmer 'âáøà','àñúé',2,'ãøåø 3'
+exec InsertValueToCusotmer 'Ã¢Ã¡Ã¸Ã ','Ã Ã±ÃºÃ©',2,'Ã£Ã¸Ã¥Ã¸ 3'
 
 
 
@@ -24,7 +24,7 @@ as
 begin
 delete from Customer
 where CustomerId=@id
-print 'ğîç÷ áäöìçä'
+print 'Ã°Ã®Ã§Ã· Ã¡Ã¤Ã¶Ã¬Ã§Ã¤'
 end
 exec deleteValueToCusotmer 1004
 
@@ -39,7 +39,7 @@ declare @x nvarchar(60)='update Customer set '
 if @id is not null
 set @x+=@coulom+'='''+@v+'''where CustomerId='+@id
 exec(@x)
-print 'òåãëï áäöìçä'
+print 'Ã²Ã¥Ã£Ã«Ã¯ Ã¡Ã¤Ã¶Ã¬Ã§Ã¤'
 end
-exec updateValueToCusotmer 'Adress','9','éåğä 87'
+exec updateValueToCusotmer 'Adress','9','Ã©Ã¥Ã°Ã¤ 87'
 
