@@ -1,4 +1,4 @@
---фер щочбмъ ойгд елоеъ ебегчъ дан рщаш бомай
+--ГґГҐГ° Г№Г®Г·ГЎГ¬Гє Г®Г©ГЈГ¤ ГҐГ«Г®ГҐГє ГҐГЎГҐГЈГ·Гє Г¤Г Г­ Г°Г№Г Гё ГЎГ®Г¬Г Г©
 alter function IfstayInvontry(@sizeid int,@amount int)
 returns bit
 as
@@ -10,7 +10,7 @@ if exists(select s.*
 return 0
 end
 print dbo.IfstayInvontry(1,1)
---фер сегчъ дан чййоъ джорд лос дчег щчбмд~
+--ГґГҐГ° Г±ГҐГЈГ·Гє Г¤Г Г­ Г·Г©Г©Г®Гє Г¤Г¦Г®Г°Г¤ Г«Г®Г± Г¤Г·ГҐГЈ Г№Г·ГЎГ¬Г¤~
 create function IfThereOrder(@IdOrder int)
 returns bit
 as
@@ -20,7 +20,7 @@ return 1
 return 0
 end
 print dbo.IfThereOrder (1)
---1.фшецгешд щочбмъ гвн еойгд елоеъ ебегчъ дан чййн бомай ан лп ътглп аъ домай(отрд моишд ос 4)
+--1.ГґГёГҐГ¶ГЈГҐГёГ¤ Г№Г®Г·ГЎГ¬Гє ГЈГўГ­ ГҐГ®Г©ГЈГ¤ ГҐГ«Г®ГҐГє ГҐГЎГҐГЈГ·Гє Г¤Г Г­ Г·Г©Г©Г­ ГЎГ®Г¬Г Г© Г Г­ Г«ГЇ ГєГІГЈГ«ГЇ Г Гє Г¤Г®Г¬Г Г©(Г®ГІГ°Г¤ Г¬Г®ГЁГёГ¤ Г®Г± 4)
 
 alter procedure UpdateAmount
 @size int,@model int ,@amount int,@x bit output
@@ -39,7 +39,7 @@ declare @t bit
 exec UpdateAmount @size=18,@model=7,@amount=10,@x=@t output
 print @t
 
---~(фер щочбмъ ойгд елоеъ еозжйшд аъ лм дбвгйн оойгд же щйщ бомай бибмд(дойгеъ ооейреъ мфй чиевшйеъ
+--~(ГґГҐГ° Г№Г®Г·ГЎГ¬Гє Г®Г©ГЈГ¤ ГҐГ«Г®ГҐГє ГҐГ®Г§Г¦Г©ГёГ¤ Г Гє Г«Г¬ Г¤ГЎГўГЈГ©Г­ Г®Г®Г©ГЈГ¤ Г¦ГҐ Г№Г©Г№ ГЎГ®Г¬Г Г© ГЎГЁГЎГ¬Г¤(Г¤Г®Г©ГЈГҐГє Г®Г®ГҐГ©Г°ГҐГє Г¬ГґГ© Г·ГЁГҐГўГёГ©ГҐГє
 alter function OrderBySize(@sizeid int,@amount int)
 returns
 @OutputTable TABLE
@@ -55,7 +55,7 @@ return
 end 
 select *
 from dbo.OrderBySize(38,1)
--- фшецгешд щочбмъ гвн еойгд елоеъ еотглръ аъ домай ан айп бомай огфйсд дегтд еозжйшд 0~
+-- ГґГёГҐГ¶ГЈГҐГёГ¤ Г№Г®Г·ГЎГ¬Гє ГЈГўГ­ ГҐГ®Г©ГЈГ¤ ГҐГ«Г®ГҐГє ГҐГ®ГІГЈГ«Г°Гє Г Гє Г¤Г®Г¬Г Г© Г Г­ Г Г©ГЇ ГЎГ®Г¬Г Г© Г®ГЈГґГ©Г±Г¤ Г¤ГҐГЈГІГ¤ ГҐГ®Г§Г¦Г©ГёГ¤ 0~
 --alter procedure UpdateAmount
 --@size int,@model int ,@amount int,@x bit output
 --as
@@ -71,7 +71,7 @@ from dbo.OrderBySize(38,1)
 --declare @t bit
 --exec UpdateAmount @size=18,@model=7,@amount=10,@x=@t output
 --print @t
---~фшецгешд щочбмъ чег ощъощ еозжйшд аъ дслен длемм щм дджореъ щм доецшйн щджойп~
+--~ГґГёГҐГ¶ГЈГҐГёГ¤ Г№Г®Г·ГЎГ¬Гє Г·ГҐГЈ Г®Г№ГєГ®Г№ ГҐГ®Г§Г¦Г©ГёГ¤ Г Гє Г¤Г±Г«ГҐГ­ Г¤Г«ГҐГ¬Г¬ Г№Г¬ Г¤Г¤Г¦Г®Г°ГҐГє Г№Г¬ Г¤Г®ГҐГ¶ГёГ©Г­ Г№Г¤Г¦Г®Г©ГЇ~
 create procedure TotalPrice
 @id int,@total int output
 as
@@ -83,8 +83,8 @@ end
 declare @total int
 exec TotalPrice 5,@total output
 print @total
---~фшецгешд щоифмъ бджорд фшйи ммчез ан дджорд чййоъ ъесйу мджорд же ан ма ъйцеш згщд еъзжйш аъ ос дджорд дзгщд
---ощъощъ бфер IfThereOrder
+--~ГґГёГҐГ¶ГЈГҐГёГ¤ Г№Г®ГЁГґГ¬Гє ГЎГ¤Г¦Г®Г°Г¤ ГґГёГ©ГЁ Г¬Г¬Г·ГҐГ§ Г Г­ Г¤Г¤Г¦Г®Г°Г¤ Г·Г©Г©Г®Гє ГєГҐГ±Г©Гі Г¬Г¤Г¦Г®Г°Г¤ Г¦ГҐ Г Г­ Г¬Г  ГєГ©Г¶ГҐГё Г§ГЈГ№Г¤ ГҐГєГ§Г¦Г©Гё Г Гє Г®Г± Г¤Г¤Г¦Г®Г°Г¤ Г¤Г§ГЈГ№Г¤
+--Г®Г№ГєГ®Г№Гє ГЎГґГҐГ° IfThereOrder
 create procedure AddOrderDetial
 @idOrder int,@cusId int,@selId int,@date date,
 @amount int,@sizeid int,@size int,@modelid int,@ifthere int output,@x bit output
@@ -106,7 +106,7 @@ if @ifthere=0
      values(@amount,@ifthere,@sizeId)
    end
    else
-   print 'айп бомай'
+   print 'Г Г©ГЇ ГЎГ®Г¬Г Г©'
 print @t
 end 
 --declare @d='24.03.2022' date
@@ -125,4 +125,5 @@ Inventory int ,
 Size int ,
 SizeId int ,
 categoryname nvarchar(30)
+
 )
