@@ -1,5 +1,5 @@
---sql דינמי
---שמקבל שם טבלה ועמודה וערך ומחזיר את השורה בטבלה שבה ערך זה-sql דינמי 
+--sql ִƒֳ©ִ‘ֳ®ֳ©
+--ֵ¯ֳ®ֳ·ֳ¡ִ› ֵ¯ֳ­ ִֳ¡ִ›ֳ₪ ִ÷ֵˆֳ®ִ÷ִƒֳ₪ ִ÷ֵˆֵ™ִ™ ִ÷ֳ®ֳ§ִ‡ֳ©ֵ™ ֵ•ֳ÷ ֳ₪ֵ¯ִ÷ֵ™ֳ₪ ֳ¡ִֳ¡ִ›ֳ₪ ֵ¯ֳ¡ֳ₪ ֵˆֵ™ִ™ ִ‡ֳ₪-sql ִƒֳ©ִ‘ֳ®ֳ© 
 create procedure search
 @coulom nvarchar(20),
 @data nvarchar(20),
@@ -12,5 +12,5 @@ declare @sqlCommand nvarchar(max)='select * from '+@table
 print @sqlCommand
 exec  (@sqlCommand)
 end
-exec search 'CategoryName','''ארועים נשים''','Category'
+exec search 'CategoryName','''ֵ•ֵ™ִ÷ֵˆֳ©ֳ­ ִ‘ֵ¯ֳ©ֳ­''','Category'
 exec search 'CategoryName',null,'Category'
