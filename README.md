@@ -1,224 +1,145 @@
 # ClothingStoreSQL
-📘 Store Clothes – SQL Database Project
+## 📘 Store Clothes – SQL Database Project
 
-A complete SQL Server project that models and manages the information system of a clothing store.
-The project includes a full relational schema, ERD, table creation scripts, constraints, functions, stored procedures, triggers, views, DML operations, dynamic SQL, and indexes.
+A full SQL Server project for managing a clothing store: customers, sellers, orders, models, sizes, categories, and inventory.
 
-📌 Project Overview
+# 📌 Overview
 
-This project represents a clothing store that sells a wide variety of models, sizes, categories, and colors.
-The system manages:
+This system models all operations of a clothing store and provides:
 
-Customers
+Customer & order management
 
-Sellers (with manager hierarchy)
+Inventory and size tracking
 
-Orders
+Staff & manager hierarchy
 
-Order Details
+Category and model organization
 
-Models & Categories
+Business insights through SQL queries
 
-Sizes & Inventory
+# 🗂️ Data Model
 
-Cities
+Main entities:
 
-The goal of the project is to design and implement a complete database solution supporting store operations, analytics, and internal management.
+City, Customer, Seller
 
-🎯 System Goals
+Category, Model, Size
 
-Efficient management of clothing items, sizes, and categories
+Orders, OrderDetail
 
-Tracking customers and their orders
+Key relations:
 
-Identifying popular items
+Sellers & customers belong to a city
 
-Managing product inventory
+Each seller has a manager
 
-Managing staff and manager relationships
+Each order belongs to a customer + seller
 
-Monitoring employee sales and salary-related analysis
+Size ↔ Model ↔ Category
 
-🗂️ Data Model (ERD)
+OrderDetail links orders to sizes
 
-The system includes the following entities:
-
-City
-
-Customer
-
-Seller
-
-Category
-
-Model
-
-Size
-
-Orders
-
-OrderDetail
-
-Key Relationships
-
-Each customer belongs to a city
-
-Each seller belongs to a city and has a manager
-
-Each order is linked to both a customer and a seller
-
-Each order contains one or more order details
-
-Each model belongs to a category
-
-Each model has multiple sizes
-
-OrderDetail links Orders ↔ Sizes
-
-(ERD diagram included in the presentation)
-
-🔒 Data Constraints
-
-The system enforces strong data integrity through constraints such as:
+# 🔒 Constraints
 
 Unique ModelName
 
-Size must be between 0–60
+Valid size: 0–60
 
-Model price cannot be NULL
+Inventory ≥ 0
 
-OrderDate must be ≤ today
+DateOrder ≤ today
 
-CityName is unique and not NULL
+Non-null price, city name
 
-Inventory must be ≥ 0
+Order quantity ≥ 1
 
-Order quantity must be ≥ 1
+# 🧱 SQL Structure (DDL)
 
-🧱 Table Creation (DDL)
+Includes full creation of tables with:
 
-Includes full SQL scripts for:
+Primary / Foreign Keys
 
-Primary Keys
-
-Foreign Keys
-
-Check Constraints
+CHECK constraints
 
 Identity columns
 
-Data integrity rules
+Data integrity logic
 
-📊 Part C – Data Extraction & Processes
-🔍 Main SELECT Queries
+# 📊 Queries (DQL)
 
-Customers with more than 2 orders
+Examples:
 
-Distinct categories assigned to models
+Customers with >2 orders
 
 Most expensive model
 
-Items priced above category average
+Items above category average
 
-View combining orders with model, category & size details
+Top 5 inventory items
 
-Average number of orders per customer
+Top 5 most-purchased items
 
-Product counts by color
+Orders info View
 
-Top 5 items with highest inventory
+Average orders per customer
 
-Top 5 most purchased items
+Sellers & managers (including hierarchy CTE)
 
-Average price per size (with HAVING)
+ # ⚙️ Functions & Procedures
 
-Sellers and their managers
+Functions:
 
-Seller hierarchy levels using CTE
+Check if order exists
 
-Sellers with at least one customer order
+Check inventory availability
 
-Sellers earning above average salary
+Return items available in a specific size
 
-🧮 Functions (UDF)
+Procedures:
 
-IfThereOrder
+Update inventory
 
-Returns 1/0 depending on whether an order exists
+Calculate customer's total purchase amount
 
-IfStayInventory
+Add item to existing/new order
 
-Checks whether enough inventory is available for a size
+# 🔥 Trigger
 
-OrderBySize (Table Function)
+updateInventory
 
-Returns all items of a specific size that have sufficient inventory
+After inserting an order detail
 
-⚙️ Stored Procedures
+Validates stock
 
-UpdateAmount
+Updates or cancels the insert accordingly
 
-Updates inventory when an item is purchased
+# 🧩 Dynamic SQL
 
-Uses inventory-check function
+Procedure that receives table + column + value
+→ builds and runs a dynamic SELECT.
 
-TotalPrice
+# 🛠️ DML Procedures
 
-Calculates total purchase amount for a given customer
+Insert customer
 
-AddOrderDetail
+Update customer (dynamic SQL)
 
-If order exists → adds item
+Delete customer
 
-If not → creates new order and then adds item
+# ⚡ Indexes
 
-🔥 Trigger: updateInventory
+Customer(CusFirstName, CusLastName)
 
-A trigger executed after insertion into OrderDetail:
+City(CityName)
 
-Validates inventory availability
+# ✅ Summary
 
-Deducts inventory if possible
+A compact SQL Server project demonstrating:
 
-If insufficient inventory → removes the inserted row and prints a warning
-
-🧩 Dynamic SQL
-
-Stored procedure:
-
-search @column, @data, @table
-
-
-Dynamically constructs and executes a SELECT based on table/column/value input.
-
-🛠️ DML Operations
-Includes procedures for:
-
-Inserting a new customer
-
-Updating customer fields using Dynamic SQL
-
-Deleting a customer record
-
-⚡ Indexes
-
-Performance optimization:
-
-Index on Customer(CusFirstName, CusLastName)
-
-Index on City(CityName)
-
-✅ Summary
-
-This SQL Server project demonstrates:
-
-✔ Relational database modeling
-✔ Full schema + ERD
-✔ Advanced SQL queries
-✔ Functions & stored procedures
-✔ Trigger-based logic
-✔ Dynamic SQL
-✔ Data integrity constraints
-✔ Performance optimization with indexes
+✔ Full relational schema
+✔ Business logic (functions, procs, trigger)
+✔ Useful analytical queries
+✔ Data integrity & indexing
+✔ Realistic store management system
 
 A complete, fully functional database system for a clothing store.
